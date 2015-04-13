@@ -1077,7 +1077,7 @@ public class MaterialEditText extends EditText {
    * only used to draw the bottom line
    */
   private boolean isInternalValid() {
-    return tempErrorText == null && isCharactersCountValid();
+    return tempErrorText == null;
   }
 
   /**
@@ -1287,7 +1287,7 @@ public class MaterialEditText extends EditText {
     float bottomTextPadding = bottomTextSize + textMetrics.ascent + textMetrics.descent;
 
     // draw the characters counter
-    if ((hasFocus() && hasCharatersCounter()) || !isCharactersCountValid()) {
+    if ((hasFocus() && hasCharatersCounter())) {
       textPaint.setColor(isCharactersCountValid() ? (baseColor & 0x00ffffff | 0x44000000) : errorColor);
       String charactersCounterText = getCharactersCounterText();
       canvas.drawText(charactersCounterText, isRTL() ? startX : endX - textPaint.measureText(charactersCounterText), lineStartY + bottomSpacing + relativeHeight, textPaint);
