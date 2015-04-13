@@ -8,9 +8,6 @@ buildscript {
   }
 }
 
-def isReleaseBuild() {
-  return version.contains("SNAPSHOT") == false
-}
 
 allprojects {
   version = VERSION_NAME
@@ -21,5 +18,3 @@ allprojects {
     maven { url 'https://oss.sonatype.org/content/groups/public' }
   }
 }
-
-apply plugin: 'android-reporting'
